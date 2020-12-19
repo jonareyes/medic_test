@@ -1,0 +1,36 @@
+<h1><%=name %>tus síntomas</h1>
+<%= form_for(@patient)  do |f| %>
+	<div class="field">
+		<%= f.text_field :disease, placeholder: "Enfermedad" %>
+	</div>
+	<div class="field">
+		<%= f.text_area :body, placeholder: "Describe tus sintómas", style: "height: 250px;" %>
+	</div>
+	<div>
+		Portada: <%= f.file_field :cover %>
+	</div>
+
+	<%= month_calendar(attribute: :starts_at) do |date| %>
+	  <%= date %>
+	<% end %>
+	<div class="field">
+		<%= f.submit "Guardar" %>
+	</div>
+
+	<!-- My calendar element -->
+<div id="my-calendar"></div>
+<!-- Dynamic create it -->
+<script type="text/javascript">
+    // Get the element
+    var element = document.getElementById("my-calendar");
+    // Create the calendar
+    jsCalendar.new(element, "30/01/2017", {
+        navigator : true,
+        navigatorPosition : "left",
+        zeroFill : false,
+        monthFormat : "month YYYY",
+        dayFormat : "DDD",
+        language : "en"
+    });
+</script>
+<% end %>

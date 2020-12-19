@@ -1,0 +1,6 @@
+<%= @patients.each do |patient| %>
+	<h1><%=link_to patient.disease, patient%></h1>
+	<div>
+		<%= patient.body %> - <%= link_to "Eliminar", patient, method: :delete %>
+	</div>
+<% end %>
